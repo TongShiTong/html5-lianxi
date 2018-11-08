@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" id="form">
+    <input type="nember"> +
+    <br>
+    <input type="number">
+    <button id="btn">=</button>
+    <output id="sum">
+
+    </output>
+</form>
+</body>
+<script>
+    var inputs = document.getElementsByTagName('input')
+    var btn = document.getElementById('btn')
+    var sum = document.getElementById('sum')
+    var form = document.getElementById('form')
+
+    form.onsubmit = function(e) {
+        // e.preventDefault()
+        return false
+    }
+
+    btn.onclick = function () {
+        sum.value = parseInt(inputs[0].value) + parseInt(inputs[1].value)
+    }
+</script>
+</html>

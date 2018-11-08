@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=a6IFz5nRUUlHEloTVZUr7zUqEGbw45UZ"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #bmap {
+            width: 800px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="bmap">
+
+    </div>
+    <button id="btn">
+        定位
+    </button>
+</body>
+<script>
+    let btn = document.querySelector('#btn')
+    btn.onclick = function () {
+        console.log(navigator.geolocation)
+        let geolocation = navigator.geolocation
+        geolocation.getCurrentPosition(
+            function (res) {
+                console.log(res)
+                let lat = res.coords.latitude
+                let lon = res.coords.longitude
+                var map = new BMap.Map('bmap')
+                var point = new BMap.Point(lon, lat)
+
+                map.centerAndZoom(point, 15)
+            },
+            function (err) {
+                console.log('失败', err)
+            },
+            {
+                timeout: 8000
+            }
+        )
+    }
+</script>
+</html>

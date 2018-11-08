@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 500px;
+            border: 1px solid #f1f1f1;
+        }
+        .container ul {
+            padding: 0;
+            background: #c3c3c3;
+            list-style: none;
+            display: flex;
+        }
+        .container ul li {
+            cursor: pointer;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border: 1px solid #888;
+            color: #666;
+        }
+        .container ul li.active {
+            color: #409eff;
+        }
+        .box {
+            display: none;
+            line-height: 1.5;
+        }
+        .active.box {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul>
+        <li class="nav-title active">财经</li>
+        <li class="nav-title">股票</li>
+        <li class="nav-title">商业</li>
+    </ul>
+    <div class="tab-bottom">
+        <section class="box active">
+            1.朗普表示，我重视同习近平主席的良好关系，愿通过习近平主席向中国人民致以良好的祝愿。两国元首经常直接沟通非常重要，我们要保持经常联系。我期待着同习主席在阿根廷二十国集团领导人峰会期间再次会晤，我们可以就一些重大问题进行深入探讨。希望双方共同努力，为我们的会晤做好充分准备。美方重视美中经贸合作，愿继续扩大对华出口。两国经济团队有必要加强沟通磋商。我支持美国企业积极参加首届中国国际进
+        </section>
+        <section class="box">
+            2.朗普表示，我重视同习近平主席的良好关系，愿通过习近平主席向中国人民致以良好的祝愿。两国元首经常直接沟通非常重要，我们要保持经常联系。我期待着同习主席在阿根廷二十国集团领导人峰会期间再次会晤，我们可以就一些重大问题进行深入探讨。希望双方共同努力，为我们的会晤做好充分准备。美方重视美中经贸合作，愿继续扩大对华出口。两国经济团队有必要加强沟通磋商。我支持美国企业积极参加首届中国国际进
+        </section>
+        <section class="box">
+            3.朗普表示，我重视同习近平主席的良好关系，愿通过习近平主席向中国人民致以良好的祝愿。两国元首经常直接沟通非常重要，我们要保持经常联系。我期待着同习主席在阿根廷二十国集团领导人峰会期间再次会晤，我们可以就一些重大问题进行深入探讨。希望双方共同努力，为我们的会晤做好充分准备。美方重视美中经贸合作，愿继续扩大对华出口。两国经济团队有必要加强沟通磋商。我支持美国企业积极参加首届中国国际进
+        </section>
+    </div>
+</div>
+</body>
+<script>
+    let lis = Array.from(document.querySelectorAll('.nav-title'))
+    let boxs = document.querySelectorAll('.box')
+    // lis.forEach((item, index) => {
+    //     item.onclick = function () {
+    //         lis.forEach((li, ind) => {
+    //             li.classList.remove('active')
+    //             boxs[ind].classList.remove('active')
+    //         })
+    //         this.classList.add('active')
+    //         boxs[index].classList.add('active')
+    //     }
+    // })
+
+//    第二种更原生的
+    for (var i = 0; i < lis.length; i++) {
+        //闭包
+        (function (i) {
+            lis[i].onclick = function () {
+                for (var j = 0; j < lis.length; j++) {
+                    lis[j].classList.remove('active')
+                    boxs[j].classList.remove('active')
+                }
+                this.classList.add('active')
+                boxs[i].classList.add('active')
+            }
+        })(i)
+    }
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            height: 300px;
+            width: 300px;
+            margin: 100px 50px;
+        }
+        #video {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--自动播放-->
+<!--<video src="./06yp.mp4" controls muted autoplay="autoplay"></video>-->
+<!--预加载 海报图 循环播放-->
+<!--<video preload controls muted poster="./imgs/03.jpg" loop="loop">-->
+    <!--放这可以兼容多个-->
+    <!--<source src="./06yp.mp4" />-->
+<!--</video>-->
+<div class="box">
+    <video src="./06yp.mp4" preload controls id="video"></video>
+    <br>
+    <button id="btn1">播放</button>
+    <button id="btn2">暂停</button>
+    <button id="btn3">静音</button>
+    <button id="btn4">1.5X</button>
+    <button id="btn5">全屏</button>
+    <button id="btn6">快进</button>
+</div>
+</body>
+<script>
+    var video = document.getElementById('video')
+    var btns = document.getElementsByTagName('button')
+    var isfast = false
+    console.dir(video)
+    btns[0].onclick = function () {
+        video.play()
+    }
+    btns[1].onclick = function () {
+        video.pause()
+    }
+    btns[2].onclick = function () {
+        video.muted = !video.muted
+        this.innerText = video.muted ? '不静音' : '静音'
+    }
+    btns[3].onclick = function () {
+        isfast = !isfast
+        isfast ? video.playbackRate = 1.5 : video.playbackRate = 1
+        this.innerText = isfast ? '1.0' : '1.5'
+
+    }
+    btns[4].onclick = function () {
+        video.webkitDisplayingFullscreen = true
+    }
+    btns[5].onclick = function () {
+        //谷歌浏览器不行，响应头没变，指定一个响应头，range
+        var currentTime = video.currentTime
+        video.currentTime = currentTime + 10
+    }
+</script>
+</html>

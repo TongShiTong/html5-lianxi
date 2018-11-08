@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px;
+            height: 200px;
+            margin: 150px auto;
+        }
+        .box {
+            transition: transform 2s ease;
+            /*改变形变中心点 x y*/
+            transform-origin: center 200px;
+
+        }
+        .box img {
+            display: block;
+            width: 100%;
+        }
+        .container:hover .box {
+            transform: rotateZ(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <img src="./Saved%20Pictures/八达岭.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

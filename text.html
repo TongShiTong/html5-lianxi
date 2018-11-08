@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: aqua;
+            border: 1px solid #000;
+        }
+        .active {
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <button>点击添加类名</button>
+    <button>点击移除</button>
+    <button>点击切换类名</button>
+</body>
+<script>
+    function $(selector) {
+        var doms = document.querySelectorAll(selector)
+        if(doms.length > 1){
+            return doms
+        }else {
+            return doms[0]
+        }
+    }
+
+    let button = $('button')
+    button[0].onclick = function () {
+        $('.box').classList.add('active')
+    }
+    button[1].onclick = function () {
+        $('.box').classList.remove('active')
+    }
+    button[2].onclick = function () {
+        $('.box').classList.toggle('active')
+    }
+</script>
+</html>

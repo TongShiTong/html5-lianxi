@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<div class="box" data-desc="陈乔恩的描述">
+    <div>
+        姓名：陈乔恩
+    </div>
+    <div>
+        描述：
+        <p>
+            美丽动人
+        </p>
+    </div>
+</div>
+<div class="box" data-desc="胡歌的描述">
+    <div>
+        姓名：胡歌
+    </div>
+    <div>
+        描述：
+        <p>
+            优质偶像
+        </p>
+    </div>
+</div>
+</body>
+<script>
+    let boxs = Array.from(document.querySelectorAll('.box'))
+    boxs.forEach(item => {
+        item.onclick = function () {
+            alert(this.dataset.desc)
+            // 或者下面方法获取属性
+            // alert(this.getAttribute('data-desc'))
+        }
+    })
+</script>
+</html>

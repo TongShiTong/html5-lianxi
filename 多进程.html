@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    var btn = document.getElementById('btn')
+
+    var wk = new Worker('./second.js')
+    console.log(wk)
+    wk.postMessage({one: 99, tow: 88})
+
+    wk.onmessage = function (res) {
+        alert(res.data)
+    }
+</script>
+</html>

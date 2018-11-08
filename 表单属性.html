@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<input type="text" value="0" tabindex="1">-->
+<!--<input type="text" value="1">-->
+<!--<input type="text" value="2" tabindex="4">-->
+<!--<input type="text" value="3" tabindex="3">-->
+
+
+
+<!--<form action="http://www.baidu.com" onsubmit="return false">-->
+    <!--&lt;!&ndash;自动完成&ndash;&gt;-->
+    <!--<input type="text" tabindex="1" required autocomplete>-->
+    <!--<input type="text">-->
+    <!--<br>-->
+    <!--&lt;!&ndash;不要//&ndash;&gt;-->
+    <!--正则表达式：<input type="text" value="2" tabindex="4" pattern="\d\d\d">-->
+    <!--<br>-->
+    <!--&lt;!&ndash;选择多个文件&ndash;&gt;-->
+    <!--<input type="file" multiple>-->
+    <!--<br>-->
+    <!--<button> 提交</button>-->
+<!--</form>-->
+
+
+
+<!--<form action="http://www.baidu.com"id="form">-->
+    <!--用户名：<input type="text" name="usernamr">-->
+    <!--<button>提交</button>-->
+<!--</form>-->
+<!--&lt;!&ndash;form是关联表单外面的&ndash;&gt;-->
+<!--<input type="password" form="form" name="password">-->
+<!--</body>-->
+<!--</html>-->
+<form action="https://www.baidu.com"id="form">
+    <input type="email" id="input">
+    <button>提交</button>
+</form>
+<h1 id="h1"></h1>
+</body>
+<script>
+    var input = document.getElementById('input')
+    var h1 = document.getElementById('h1')
+    var form = document.getElementById('form')
+    input.oninput = function () {
+        h1.innerText = this.value;
+        // h1.contentText = this.value
+        // h1.innerHTML = this.value
+    }
+    //事件对象
+    input.oninvalid = function (err) {
+        console.log(err.srcElement.validationMessage)
+    }
+</script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #btn {
+            position: fixed;
+            top: 0;
+            right: 100px;
+            width: 100px;
+            height: 100px;
+        }
+        .box {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            background: aqua;
+            height: 100px;
+            border: 1px solid #000;
+            transition: margin 2s ease, top 1s linear;
+            /*缓存*/
+            transition-delay: 2s;
+            /*提前声明变化的属性*/
+            will-change: top, margin;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <button id="btn">动</button>
+</body>
+<script>
+    var box = document.querySelector('.box')
+    var btn = document.querySelector('#btn')
+    // setInterval(() => {
+    //     box.style.marginLeft = box.offsetLeft + 5+ 'px'
+    // }, 1000/60)
+    btn.onclick = function () {
+        box.style.marginLeft = '500px'
+        box.style.top = '500px'
+    }
+</script>
+</html>

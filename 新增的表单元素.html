@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <legend>登录表单</legend>
+    <form action="">
+        用户名：<input type="text">
+        <br>
+        密码：<input type="password">
+        <br>
+        邮箱：<input type="email">
+        <br>
+        电话号码：<input type="tel">
+        <br>
+        日期：<input type="date"onchange="console.log(this.value)">
+        <br>
+        颜色：<input type="color">
+        <br>
+        范围：<input type="range"min="10" max="100" oninput="console.log(this.value)">
+        <button>
+            提交
+        </button>
+    </form>
+    <input type="text" list="car">
+    <datalist id="car">
+        <option value="宝马">720</option>
+        <option value="奔驰">c20</option>
+        <option value="奥迪">r8</option>
+    </datalist>
+</fieldset>
+</body>
+</html>

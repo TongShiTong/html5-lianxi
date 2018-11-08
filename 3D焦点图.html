@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 500px;
+            height: 280px;
+            margin: 150px auto;
+        }
+        .container ul {
+            /*3D效果*/
+            /*transform-style: preserve-3d;*/
+            /*井深效果*/
+            perspective: 800px;
+            position: relative;
+            list-style: none;
+            width: 500px;
+            height: 280px;
+        }
+        li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500px;
+            height: 280px;
+            z-index: 10;
+            transform: translateZ(-400px);
+            transition: transform 1s ease;
+        }
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .center {
+            z-index: 998;
+            transform: translateZ(-100px);
+        }
+        .left1 {
+            z-index: 992;
+            transform: rotateY(-30deg) translateZ(-150px);
+        }
+        .right1 {
+            z-index: 992;
+            transform: rotateY(30deg) translateZ(-150px);
+        }
+        .left2 {
+            z-index: 900;
+            transform: rotateY(-40deg) translateZ(-300px);
+        }
+        .right2 {
+            z-index: 900;
+            transform: rotateY(40deg) translateZ(-300px);
+        }
+        .btn1 {
+            position: absolute;
+            top: 280px;
+            left: 160px;
+        }
+        .btn2 {
+            position: absolute;
+            top: 280px;
+            left: 260px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li><img src="./imgs/08.jpg" alt=""></li>
+            <li><img src="./imgs/07.jpg" alt=""></li>
+            <li class="left2"><img src="./imgs/06.jpg" alt=""></li>
+            <li class="left1"><img src="./imgs/05.jpg" alt=""></li>
+            <li class="center"><img src="./imgs/11.jpg" alt=""></li>
+            <li class="right1"><img src="./imgs/09.jpg" alt=""></li>
+            <li class="right2"><img src="./imgs/10.jpg" alt=""></li>
+            <li><img src="./imgs/12.jpg" alt=""></li>
+            <li><img src="./imgs/13.jpg" alt=""></li>
+            <button class="btn1">上一张</button>
+            <button class="btn2">下一张</button>
+        </ul>
+    </div>
+</body>
+<script>
+    var btns = document.querySelectorAll('button')
+    var lis = document.querySelectorAll('li')
+    var arr = ['', '', 'left2', 'left1', 'center', 'right2', 'right1', '', '']
+    var islock = false
+    btns[1].onclick = function () {
+        if (!islock) {
+            islock = true
+            setTimeout(() => {
+                islock = false
+            }, 1000)
+            let first = arr.shift()
+            arr.push(first)
+
+            arr.forEach((item, index) => {
+                lis[index].className = item
+            })
+        }
+
+    }
+    btns[0].onclick = function () {
+        if (!islock) {
+            islock = true
+            setTimeout(() => {
+                islock = false
+            }, 1000)
+            let last = arr.pop()
+            arr.unshift(last)
+
+            arr.forEach((item, index) => {
+                lis[index].className = item
+            })
+        }
+    }
+</script>
+</html>
